@@ -10,6 +10,17 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+
+  //return Object.entries(objeto);
+  
+  var arreglo = [];
+  for(prop in objeto){
+    var arregloContenedor = [prop,objeto[prop]];
+    arreglo.push(arregloContenedor);
+  }
+  return arreglo;
+
+
 }
 
 
