@@ -29,6 +29,18 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var objetoContador = {};
+
+  for(var i=0; i<string.length;i++){
+    if(!(string[i] in objetoContador)){
+      objetoContador[string[i]]=1;
+    }
+    else{
+      objetoContador[string[i]]++;
+    }
+  }
+  
+  return objetoContador;
 }
 
 
@@ -37,6 +49,17 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var capFront = '';
+  var lowBack = '';
+  for(var i=0;i<s.length;i++){
+    if(s[i]==s[i].toUpperCase()){
+      capFront+=s[i];
+    }else{
+      lowBack+=s[i];
+    }
+  }
+  
+  return capFront+lowBack;
 }
 
 
@@ -46,6 +69,26 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+
+  //Dividimos el string en substrings de cada palabra. 
+  //var palabras = str.split(' ');
+  //var arregloPalabras = [];
+  /*palabras.forEach(function(palabra){
+    var revertida = '';
+    for(var i=palabra.length-1;i>=0;i--){
+      revertida+=palabra[i];
+    }
+    arregloPalabras.push(revertida);
+  });*/
+  //return arregloPalabras.join(' ');
+  //En este problema se puede agregar un metodo al prototipo de String, y despues usarlo en el map. 
+  return str.split(' ').map(function(palabra){
+    var revertida = '';
+    for(var i=palabra.length-1;i>=0;i--){
+      revertida+=palabra[i];
+    }
+    return revertida;
+  }).join(' ');
 } 
 
 
