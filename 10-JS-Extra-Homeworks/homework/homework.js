@@ -118,6 +118,13 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var chainModificada = "";
+  for(var i=0; i<cadena.length;i++){
+    if(!(cadena[i]==='a' || cadena[i]==='b' || cadena[i]==='c')){
+      chainModificada+=cadena[i];
+    }
+  }
+  return chainModificada;
 }
 
 
@@ -125,6 +132,22 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  var arregloContenedor=[];
+  var arregloOrdenado = [];
+  arr.forEach(function(item){
+    if(arregloContenedor[item.length]===undefined){
+      arregloContenedor[item.length]=item;
+    }else{
+      arregloContenedor[item.length+1]=item;
+    }
+    
+  });
+  for(var j=0; j<arregloContenedor.length;j++){
+    if(arregloContenedor[j]!==undefined){
+      arregloOrdenado.push(arregloContenedor[j]);
+    }
+  }
+  return arregloOrdenado;
 }
 
 
@@ -133,7 +156,17 @@ function buscoInterseccion(arreglo1, arreglo2){
   //retornar un nuevo array con la intersección de ambos elementos. (Ej: [4,2,3] unión [1,3,4] = [3,4].
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
-  //Escribe tu código aquí  
+  //Escribe tu código aquí 
+  var intersection = [];
+  arreglo1.forEach(function(item){
+    for(var i=0; i<arreglo2.length;i++){
+      if(item===arreglo2[i]){
+        intersection.push(item);
+      }
+    }
+  });
+  
+  return intersection;
 }
 
 
