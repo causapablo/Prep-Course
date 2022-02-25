@@ -32,12 +32,7 @@ function numberOfCharacters(string) {
   var objetoContador = {};
 
   for(var i=0; i<string.length;i++){
-    if(!(string[i] in objetoContador)){
-      objetoContador[string[i]]=1;
-    }
-    else{
-      objetoContador[string[i]]++;
-    }
+    !(string[i] in objetoContador) ? objetoContador[string[i]]=1 : objetoContador[string[i]]++;
   }
   
   return objetoContador;
@@ -52,11 +47,7 @@ function capToFront(s) {
   var capFront = '';
   var lowBack = '';
   for(var i=0;i<s.length;i++){
-    if(s[i]==s[i].toUpperCase()){
-      capFront+=s[i];
-    }else{
-      lowBack+=s[i];
-    }
+    (s[i]==s[i].toUpperCase()) ? capFront+=s[i] : lowBack+=s[i];
   }
   
   return capFront+lowBack;
